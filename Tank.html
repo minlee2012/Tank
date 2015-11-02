@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tank, WebGL</title>
+	<meta charset="utf-8" />
+    <script src="webgl-utils.js"></script>
+    <script src="webgl-debug.js"></script>
+    <script src="cuon-utils.js"></script>
+    <script src="cuon-matrix.js"></script>
+    <script src="Tank.js"></script>
+</head>
+<body onload="main()">
+<p>
+    <font size = "20" color = "#00008b">MIN LEE - TANK PROJECT</font>
+</p>
+    <canvas id="webgl" width="800" height="800">
+        Browser does not support canvas -- webgl
+    </canvas>
+
+    <p>Direction of Tank: <b id='DTank'>$Rx</b> </p> 
+    <p>Direction of Turret: <b id='DTurret'>$Rx2</b> </p> 
+    <p>Direction of Muzzle: <b id='DMuzzle'>$Ry</b> </p>
+    
+    <element onkeypress='changeText()' value='Change Text'/>
+    <script type="text/javascript">
+        document.getElementById('DTank').innerHTML = Rx2;
+        document.getElementById('DTurret').innerHTML = Rx;
+        document.getElementById('DMuzzle').innerHTML = Ry;
+    </script>
+    
+</body>
+</html>
