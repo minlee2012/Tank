@@ -1,4 +1,4 @@
-/**
+ /**
  * Min Lee
  * Jami Montgomery
  * COSC-275 Computer Graphics
@@ -1359,19 +1359,19 @@ function Tank(hull, turret, muzzle, wheel, vpMatrix, mvpMatrix, u_mvpMatrix, n, 
 
     //TURRET
     turret.setRotate(Rx, 0, 1, 0);
-    turret.rotate(Rx2, 0, 1, 0);
+    turret.translate(0, 0.3, (0+(Tz*1.6)));
     turret.scale(0.5, 0.5, 0.5);
-    turret.translate(0, 0.5, (0+(Tz*3)));
+    turret.rotate(Rx2, 0, 1, 0);
     mvpMatrix.set(vpMatrix).multiply(turret);
     gl.uniformMatrix4fv(u_mvpMatrix, false, mvpMatrix.elements);
     gl.drawArrays(gl.TRIANGLES, 0, n);
 
     //MUZZLE
     muzzle.setRotate(Rx, 0, 1, 0);
-    muzzle.rotate(Ry, 1, 0, 0);
     muzzle.rotate(Rx2, 0, 1, 0);
+    muzzle.translate(0, 0.3, (0.5+(Tz*1.6)));
     muzzle.scale(0.125, 0.25, 0.75);
-    muzzle.translate(0, 1, (0.5+(Tz*2.1)));
+    muzzle.rotate(Ry, 1, 0, 0);
     mvpMatrix.set(vpMatrix).multiply(muzzle);
     gl.uniformMatrix4fv(u_mvpMatrix, false, mvpMatrix.elements);
     gl.drawArrays(gl.TRIANGLES, 0, n);
@@ -1428,13 +1428,13 @@ function keydown(ev, gl, n, hullModelMatrix, turretModelMatrix, muzzleModelMatri
         Rx2 += 1;
     } else
     if(ev.keyCode == 38) { // Up
-        if(Ry <= -1){
-            Ry += 1;
+        if(Ry >= -90){
+            Ry -= 1;
         }//set a boundary
     } else 
     if (ev.keyCode == 40) { // Down
-        if(Ry >= -90){
-            Ry -= 1;
+        if(Ry <= -1){
+            Ry += 1;
         }//set a boundary
     } else
     if(ev.keyCode == 87) { // W
